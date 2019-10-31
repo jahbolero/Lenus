@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "phonegap-plugin-push": "~1.8.0"
+  },
+  "cordova": {
+    "plugins": {
+      "phonegap-plugin-push": {
+        "SENDER_ID": "XXXXXXX"
+      },
+      "cordova-plugin-local-notification": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      }
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.1.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-local-notification": "^0.9.0-beta.2",
+    "phonegap-plugin-push": "~1.8.0"
+  }
+}

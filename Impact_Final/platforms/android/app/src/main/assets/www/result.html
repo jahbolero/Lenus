@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DevFolio Bootstrap Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg); height: 100%; min-height: 100%; overflow: hidden;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+
+  <!--/ Nav Star /-->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="#page-top">Lenus</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Nav End /-->
+
+
+  <div >
+    <div class="overlay-mf"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-lg-12">
+          <div class="counter-box">
+            <div class="counter-ico">
+              <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
+            </div>
+            <div class="counter-num">
+              <h1 class="s-title-white">FINALLY DONE!</h1>
+              <span class="counter-text" id="result"></span>
+              <br>
+              <div style="text-align: left;">
+              <h4 style="font-size: 15px; color: #ffffff; margin-top: 20px;">Cigarretes Consumption: <br><span id="cigar" class="counter-text"></span></h4><br>
+              <h4 style="font-size: 15px; color: #ffffff;">Total Chalories: <br><span id="cal"  class="counter-text"></span></h4><br>
+              <h4 style="font-size: 15px; color: #ffffff;">BMI: <br><span id="bmi"  class="counter-text"></span></h4><br>
+              <h4 style="font-size: 15px; color: #ffffff;">Heart Rate: <br><span id="heart"  class="counter-text"></span></h4><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--/ Section Contact-footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/counterup/jquery.waypoints.min.js"></script>
+  <script src="lib/counterup/jquery.counterup.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/typed/typed.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script>
+    var random
+    $(document).ready(function() {
+      var result = localStorage.getItem("result");
+      console.log(result);
+      result = JSON.parse(result);
+      random = result;
+      var prediction = result.Results.output1.value.Values[0][14];
+      var cigar = result.Results.output1.value.Values[0][3];
+
+      var cal = result.Results.output1.value.Values[0][7];
+      var bmi = result.Results.output1.value.Values[0][10];
+      var heart = result.Results.output1.value.Values[0][11];
+      $("#result").empty();
+
+      if(prediction == 1){
+       $("#result").append("Oh no! You are at risk of developing cardio vascular disease in the next 10 years.");
+      }else{
+       $("#result").append("Nice job! You are not at risk of cardio vascular disease in the next 10 years.");
+      }
+
+      //CIGAR
+      console.log(cigar);
+      if(cigar > 5.5){
+        var percent = ((cigar - 5.5)/5.5)*100;
+        console.log(percent);
+        percent = Math.round(percent);
+        $("#cigar").append(" - Your cigarette consumption is " + percent + "% higher than average (5.5) consumption.");
+      }else{
+        $("#cigar").append(" - Your cigarette consumption is lower than average (5.5) consumption.");
+      }
+
+      //CALORIES
+      if(cal < 200){
+
+        $("#cal").append(" - You have a good cholesterol level.");
+
+      }else if(cal < 240 && cal > 200){
+
+        $("#cal").append(" - Your cholesterol level is considered bordered high.");
+
+      }else{
+
+        $("#cal").append(" - You have a high cholesterol level.");
+
+      }
+
+      //BMI
+      if(bmi > 24.9 && bmi < 18.5){
+        $("#bmi").append(" - You have an ideal BMI.");
+      }else if(bmi > 24.9){
+        $("#bmi").append(" - You are overweight.");
+      }else{
+        $("#bmi").append(" - You are underweight.");
+      }
+
+      if(heart < 100 && heart > 70){
+        $("#heart").append(" - You have a normal heart rate.");
+      }else{
+        $("#heart").append(" - You have an irregular heart rate.");
+      }
+
+
+    });
+  </script>
+
+</body>
+</html>

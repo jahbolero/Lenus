@@ -1,0 +1,1 @@
+{"background_color":"#FFF","display":"standalone","name":"helloworld","short_name":"helloworld","version":"com.phonegap.helloworld","description":"Push sample application that receives push notifications.","author":"PhoneGap Team","icons":[],"start_url":"index.html","theme_color":"#ee6e73","gcm_sender_id":"996231231186"}
